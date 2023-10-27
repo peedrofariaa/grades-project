@@ -16,8 +16,11 @@
   }
 }
 
+header{
+  background-color: white;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #9ca3af;
-  padding: 16px;
+  background-color: #D1D5DB;
 }
