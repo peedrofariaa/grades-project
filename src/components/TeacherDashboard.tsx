@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 
 type StudentData = {
@@ -39,16 +40,16 @@ const DashboardProfessor = () => {
   }
 
   return (
-    <ul>
-      <li>Nome do Aluno</li>
-      <li>Atualização</li>
-      <li>Av. 1</li>
-      <li>Av. 2</li>
-      <li>Av. 3</li>
-      <li>Av. 4</li>
-      <li>Média Final</li>
-      <li>Situação</li>
-    </ul>
+    <table>
+      <th>Nome do Aluno</th>
+      <th>Atualização</th>
+      <th>Av. 1</th>
+      <th>Av. 2</th>
+      <th>Av. 3</th>
+      <th>Av. 4</th>
+      <th>Média Final</th>
+      <th>Situação</th>
+    </table>
   );
 };
 

@@ -1,3 +1,5 @@
+import DashboardProfessor from "@/components/TeacherDashboard";
+
 const TeacherDashboard = () => {
   return (
     <body>
@@ -21,7 +23,7 @@ const TeacherDashboard = () => {
             placeholder="Pesquisar alunos"
           />
         </div>
-        <div></div>
+        <DashboardProfessor></DashboardProfessor>
       </main>
     </body>
   );
