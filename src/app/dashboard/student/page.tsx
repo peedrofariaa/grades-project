@@ -1,3 +1,5 @@
+import DashboardAluno from "@/components/StudentDashboard";
+
 const StudentDashboard = () => {
   return (
     <body>
@@ -15,13 +17,8 @@ const StudentDashboard = () => {
       <main>
         <div className="flex justify-between mt-10 px-20">
           <h1 className="font-bold text-2xl">Minhas Notas</h1>
-          <input
-            className="pl-4 w-80 h-10"
-            type="search"
-            placeholder="Pesquisar alunos"
-          />
         </div>
-        <div></div>
+        <DashboardAluno></DashboardAluno>
       </main>
     </body>
   );

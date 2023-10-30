@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 
 type StudentScore = {
@@ -27,24 +28,38 @@ const DashboardAluno = () => {
       } catch (error) {
         console.error(error);
       }
-    }
+    };
     fetchStudentScore();
   }, []);
 
-  if(isLoading){
-    return <div>Loading...</div>
-  } 
+  if (isLoading) {
+    return (
+      <div className="mt-10 flex justify-center font-bold text-2xl">
+        Loading...
+      </div>
+    );
+  }
 
-  return(
-    <ul>
-        <li>Av. 1</li>
-        <li>Av. 2</li>
-        <li>Av. 3</li>
-        <li>Av. 4</li>
-        <li>Média Final</li>
-        <li>Situação</li>
-    </ul>
-  )
+  return (
+    <table className="ml-20 mt-4">
+      <tr className="bg-[#F3F4F6] h-14 font-medium">
+        <th className="pr-28 pl-4">Av. 1</th>
+        <th className="pr-28">Av. 2</th>
+        <th className="pr-28">Av. 3</th>
+        <th className="pr-28">Av. 4</th>
+        <th className="pr-28">Média Final</th>
+        <th className="pr-24">Situação</th>
+      </tr>
+      <tr className="bg-white">           
+        <td className="pl-4">Fábio</td>
+        <td>Flavio</td>
+        <td>Flavio</td>
+        <td>Flavio</td>
+        <td>Flavio</td>
+        <td>Flavio</td>
+      </tr>
+    </table>
+  );
 };
 
 export default DashboardAluno;

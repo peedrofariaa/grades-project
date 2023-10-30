@@ -36,19 +36,31 @@ const DashboardProfessor = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="mt-10 flex justify-center font-bold text-2xl">Loading...</div>;
   }
 
   return (
-    <table>
-      <th>Nome do Aluno</th>
-      <th>Atualização</th>
-      <th>Av. 1</th>
-      <th>Av. 2</th>
-      <th>Av. 3</th>
-      <th>Av. 4</th>
-      <th>Média Final</th>
-      <th>Situação</th>
+    <table className="ml-20 mt-4">
+      <tr className="bg-[#F3F4F6] h-14 font-medium">
+        <th className="pr-12 pl-4">Nome do Aluno</th>
+        <th className="pr-16">Atualização</th>
+        <th className="pr-28">Av. 1</th>
+        <th className="pr-28">Av. 2</th>
+        <th className="pr-28">Av. 3</th>
+        <th className="pr-28">Av. 4</th>
+        <th className="pr-16">Média Final</th>
+        <th className="pr-24">Situação</th>
+      </tr>
+      <tr className="bg-white">           
+        <td className="pl-4">Fábio</td>
+        <td>Fábio</td>
+        <td>Flavio</td>
+        <td>Flavio</td>
+        <td>Flavio</td>
+        <td>Flavio</td>
+        <td>Flavio</td>
+        <td>Flavio</td>
+      </tr>
     </table>
   );
 };
