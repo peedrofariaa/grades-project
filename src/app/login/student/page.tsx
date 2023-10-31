@@ -1,10 +1,12 @@
 "use client";
 
 import { AuthContext } from "@/auth/AuthContext";
+import { useApi } from "@/services/api";
 import { useRouter } from "next/navigation";
 import { useState, useContext } from "react";
 
 const StudentLogin: React.FC = () => {
+  const api = useApi()
   const auth = useContext(AuthContext);
   const router = useRouter();
   const [email, setEmail] = useState<any>();
@@ -12,7 +14,7 @@ const StudentLogin: React.FC = () => {
 
   const handleStudentLogin = async () => {
     if (email && password) {
-      const isLogged = await auth.login(email, password, "student");
+      const isLogged = await api.login(email, password, "student");
       if (isLogged) {
         router.push("/dashboard/student");
       } else {
