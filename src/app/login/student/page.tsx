@@ -1,19 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { AuthContext } from "@/auth/AuthContext";
+import { useRouter } from "next/navigation";
+import { useState, useContext } from "react";
 
-type LoginInfo = {
-  email: string;
-  password: string;
-};
+const StudentLogin: React.FC = () => {
+  const auth = useContext(AuthContext);
+  const router = useRouter();
+  const [email, setEmail] = useState<any>();
+  const [password, setPassword] = useState<any>();
 
-const StudentLogin = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleStudentLogin = async () => {
+    if (email && password) {
+      const isLogged = await auth.login(email, password, "student");
+      if (isLogged) {
+        router.push("/dashboard/student");
+      } else {
+        alert("Login inválido");
+      }
+    }
   };
 
   return (
@@ -25,20 +30,22 @@ const StudentLogin = () => {
         <input
           type="email"
           value={email}
+          onChange={(e) => setEmail(e?.target?.value)}
           className="w-80 h-16 border-none text-lg bg-white rounded-2xl outline-none mb-5 pl-5 placeholder:text-black"
           placeholder="Email"
         ></input>
         <input
           type="password"
           value={password}
+          onChange={(e) => setPassword(e?.target?.value)}
           className="w-80 h-16 border-none text-lg bg-white rounded-2xl outline-none mb-5 pl-5 placeholder:text-black"
           placeholder="Senha"
         ></input>
       </div>
       <div>
         <button
-          onClick={handleLogin}
-          className="bg-blue-700 w-80 h-20 rounded-2xl text-white font-bold text-xl"
+          onClick={handleStudentLogin}
+          className="bg-blue-700 w-80 h-14 rounded-2xl text-white font-bold text-xl hover:opacity-80"
         >
           Entrar
         </button>
