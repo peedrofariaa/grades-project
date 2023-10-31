@@ -17,11 +17,11 @@ const TeacherDashboard = () => {
       <main>
         <div className="flex justify-between mt-10 px-20">
           <h1 className="font-bold text-2xl">Meus Alunos</h1>
-          <input
-            className="pl-4 w-80 h-10"
-            type="search"
-            placeholder="Pesquisar alunos"
-          />
+            <input
+              className="pl-4 w-80 h-10"
+              type="text"
+              placeholder="Pesquisar alunos"
+            />
         </div>
         <DashboardProfessor></DashboardProfessor>
       </main>
