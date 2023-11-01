@@ -1,5 +1,6 @@
 import DashboardProfessor from "@/components/TeacherDashboard";
 import logo from '@/assets/logo.png'
+import lupa from '@/assets/icon.svg'
 import Image from 'next/image'
 
 const TeacherDashboard = () => {
@@ -18,11 +19,14 @@ const TeacherDashboard = () => {
       <main>
         <div className="flex justify-between mt-10 px-20">
           <h1 className="font-bold text-2xl">Meus Alunos</h1>
-            <input
-              className="pl-4 w-80 h-10"
-              type="text"
-              placeholder="Pesquisar alunos"
-            />
+            <div className="flex">
+              <input
+                className="pl-4 w-80 h-10"
+                type="text"
+                placeholder="Pesquisar alunos"
+              />
+              <Image src={lupa} alt="lupa"></Image>
+            </div>
         </div>
         <DashboardProfessor></DashboardProfessor>
       </main>
