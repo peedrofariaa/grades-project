@@ -3,5 +3,5 @@ export type User = {
   userType: string;
   name: string;
   email: string;
-  password: string;
+  token: string;
 };
