@@ -7,44 +7,46 @@ const DashboardAluno = () => {
   const api = useApi();
   const auth = useContext(AuthContext);
   const [rows, setRows] = useState<Array<object>>();
-//  const [isLoading, setIsLoading] = useState(true);
+  //  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const handleCallStudent = async () => {
       if (auth?.user) {
         const studentRes: any = await api.callStudent(auth.user?.token);
-        studentRes?.score.map((score: any) => {
-          let n1 = score?.n1.toFixed(2);
-          let n2 = score?.n2.toFixed(2);
-          let n3 = score?.n3.toFixed(2);
-          let n4 = score?.n4.toFixed(2);
-          let average = score?.average.toFixed(2);
-          let situation = score?.situation;
-     
-          return setRows([
-            ...(rows ?? []),
-            {
+        const updatedRows: object[] = [];
+        studentRes?.forEach((student: any) => {
+          const score = student.score.map((el: any) => {
+            let n1 = el?.n1.toFixed(2);
+            let n2 = el?.n2.toFixed(2);
+            let n3 = el?.n3.toFixed(2);
+            let n4 = el?.n4.toFixed(2);
+            let average = el?.average.toFixed(2);
+            let situation = el?.situation;
+            const newRow = {
               n1,
               n2,
               n3,
               n4,
               average,
               situation,
-            },
-          ]);
+            };
+            updatedRows.push(newRow);
+            return newRow;
+          });
         });
+        setRows(updatedRows);
       }
     };
     handleCallStudent();
   }, []);
 
-//  if (isLoading) {
-//    return (
-//      <div className="mt-10 flex justify-center font-bold text-2xl">
-//        Loading...
-//      </div>
-//    );
-//  }
+  //  if (isLoading) {
+  //    return (
+  //      <div className="mt-10 flex justify-center font-bold text-2xl">
+  //        Loading...
+  //      </div>
+  //    );
+  //  }
 
   return (
     <table className="mt-4 w-full max-w-[1205px] mx-auto">
@@ -68,7 +70,6 @@ const DashboardAluno = () => {
             <td>{row?.average}</td>
             <td>
               <div>
-                {row?.situation === "aprovado" ? `aproved` : `failed`}
                 {row?.situation}
               </div>
             </td>

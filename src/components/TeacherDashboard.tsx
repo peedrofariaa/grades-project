@@ -56,7 +56,7 @@ const DashboardProfessor = () => {
   //  }
 
   return (
-    <table className="mt-4 w-full max-w-[1205px] mx-auto">
+    <table className="table-auto mt-4 w-full max-w-[1205px] mx-auto">
       <thead>
         <tr className="bg-[rgb(243,244,246)] h-14 font-medium">
           <th className="">Nome do Aluno</th>
