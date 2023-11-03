@@ -8,52 +8,52 @@ const DashboardProfessor = () => {
   const api = useApi();
   const auth = useContext(AuthContext);
   const [rows, setRows] = useState<Array<object>>();
-//  const [isLoading, setIsLoading] = useState(true);
+  //  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const handleCallTeacher = async () => {
       if (auth?.user) {
         const teacherRes: any = await api.callTeacher(auth.user?.token);
-        for (let i: number = 0; teacherRes.length >= i; i++) {
-          let name = teacherRes[i]?.firstName + "" + teacherRes[i]?.lastName;
-          teacherRes[i]?.scores.map((score: any) => {
-            let updated = format(new Date(score?.updatedAt), "dd-MM-yyyy");
-            let updatedHour = format(new Date(score?.updatedAt), "hh:mm");
-            let n1 = score?.n1.toFixed(2);
-            let n2 = score?.n2.toFixed(2);
-            let n3 = score?.n3.toFixed(2);
-            let n4 = score?.n4.toFixed(2);
-            let average = score?.average.toFixed(2);
-            let situation = score?.situation;
-
-            return setRows([
-              ...(rows ?? []),
-              {
-                name,
-                updated,
-                updatedHour,
-                n1,
-                n2,
-                n3,
-                n4,
-                average,
-                situation,
-              },
-            ]);
+        const updatedRows:object[] = [];
+        teacherRes?.forEach((teacher: any) => {
+          let name = teacher?.firstName + " " + teacher?.lastName;
+          const score = teacher.scores.map((el: any) => {
+            let updated = format(new Date(el?.updatedAt), "dd-MM-yyyy");
+            let updatedHour = format(new Date(el?.updatedAt), "hh:mm");
+            let n1 = el?.n1.toFixed(2);
+            let n2 = el?.n2.toFixed(2);
+            let n3 = el?.n3.toFixed(2);
+            let n4 = el?.n4.toFixed(2);
+            let average = el?.average.toFixed(2);
+            let situation = el?.situation;
+            const newRow = {
+              updated,
+              updatedHour,
+              n1,
+              n2,
+              n3,
+              n4,
+              average,
+              situation,
+              name,
+            };
+            updatedRows.push(newRow);
+            return newRow;
           });
-        }
+        });
+        setRows(updatedRows)
       }
     };
     handleCallTeacher();
   }, []);
 
-//  if (isLoading) {
-//    return (
-//      <div className="mt-10 flex justify-center font-bold text-2xl">
-//        Loading...
-//      </div>
-//    );
-//  }
+  //  if (isLoading) {
+  //    return (
+  //      <div className="mt-10 flex justify-center font-bold text-2xl">
+  //        Loading...
+  //      </div>
+  //    );
+  //  }
 
   return (
     <table className="mt-4 w-full max-w-[1205px] mx-auto">
@@ -86,7 +86,6 @@ const DashboardProfessor = () => {
             <td>{row?.average}</td>
             <td>
               <div>
-                {row?.situation === "aprovado" ? `aproved` : `failed`}
                 {row?.situation}
               </div>
             </td>
