@@ -14,7 +14,7 @@ const DashboardProfessor = () => {
     const handleCallTeacher = async () => {
       if (auth?.user) {
         const teacherRes: any = await api.callTeacher(auth.user?.token);
-        const updatedRows:object[] = [];
+        const updatedRows: object[] = [];
         teacherRes?.forEach((teacher: any) => {
           let name = teacher?.firstName + " " + teacher?.lastName;
           const score = teacher.scores.map((el: any) => {
@@ -41,7 +41,7 @@ const DashboardProfessor = () => {
             return newRow;
           });
         });
-        setRows(updatedRows)
+        setRows(updatedRows);
       }
     };
     handleCallTeacher();
@@ -85,9 +85,7 @@ const DashboardProfessor = () => {
             <td>{row?.n4}</td>
             <td>{row?.average}</td>
             <td>
-              <div>
-                {row?.situation}
-              </div>
+              <div>{row?.situation}</div>
             </td>
           </tr>
         ))}

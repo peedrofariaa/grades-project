@@ -41,9 +41,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     } else if (userType === "student") {
       if (data?.student && data?.token) {
         setUser({
-          name: data.student.firstName + "" + data.student.lastName,
-          email: data.student.email,
-          id: data.student.id,
+          name: data?.student.firstName + "" + data.student.lastName,
+          email: data?.student.email,
+          id: data?.student.id,
           userType: userType,
           token: data.token,
         });
