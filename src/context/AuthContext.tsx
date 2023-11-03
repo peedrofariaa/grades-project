@@ -1,3 +1,4 @@
+"use client";
 import { createContext, ReactNode, useState } from "react";
 import { User } from "@/types/user";
 import { useApi } from "@/services/api";
@@ -12,8 +13,8 @@ type AuthContextType = {
   logout: () => void;
 };
 
-export const AuthContext = createContext<AuthContextType | undefined>(
-  undefined
+export const AuthContext = createContext<AuthContextType>(
+  {} as AuthContextType
 );
 
 type AuthProviderProps = {
@@ -35,6 +36,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           userType: userType,
           token: data.token,
         });
+        return true;
       }
     } else if (userType === "student") {
       if (data?.student && data?.token) {
@@ -45,13 +47,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
           userType: userType,
           token: data.token,
         });
+        return true;
       }
     }
     return false;
   };
 
   const logout = () => {
-    setUser(null)
+    setUser(null);
   };
 
   return (
