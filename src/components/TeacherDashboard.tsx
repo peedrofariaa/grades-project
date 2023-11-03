@@ -24,7 +24,7 @@ const DashboardProfessor = () => {
             let n3 = score?.n3.toFixed(2);
             let n4 = score?.n4.toFixed(2);
             let average = score?.average.toFixed(2);
-            let situation = score?.score.situation;
+            let situation = score?.situation;
 
             return setRows([
               ...(rows ?? []),
@@ -57,7 +57,7 @@ const DashboardProfessor = () => {
 
   return (
     <table className="mt-4 w-full max-w-[1205px] mx-auto">
-      <thead className="">
+      <thead>
         <tr className="bg-[rgb(243,244,246)] h-14 font-medium">
           <th className="">Nome do Aluno</th>
           <th className="">Atualização</th>
