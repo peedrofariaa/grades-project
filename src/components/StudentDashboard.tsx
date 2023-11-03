@@ -47,15 +47,15 @@ const DashboardAluno = () => {
 //  }
 
   return (
-    <table className="ml-20 mt-4">
+    <table className="mt-4 w-full max-w-[1205px] mx-auto">
       <thead>
         <tr className="bg-[#F3F4F6] h-14 font-medium">
-          <th className="pr-28 pl-4">Av. 1</th>
-          <th className="pr-28">Av. 2</th>
-          <th className="pr-28">Av. 3</th>
-          <th className="pr-28">Av. 4</th>
-          <th className="pr-28">Média Final</th>
-          <th className="pr-24">Situação</th>
+          <th className="">Av. 1</th>
+          <th className="">Av. 2</th>
+          <th className="">Av. 3</th>
+          <th className="">Av. 4</th>
+          <th className="">Média Final</th>
+          <th className="">Situação</th>
         </tr>
       </thead>
       <tbody>
