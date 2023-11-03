@@ -19,13 +19,13 @@ const TeacherDashboard = () => {
       <main>
         <div className="flex justify-between mt-10 px-20">
           <h1 className="font-bold text-2xl">Meus Alunos</h1>
-            <div className="flex">
+            <div className="flex relative">
               <input
-                className="pl-4 w-80 h-10"
+                className="pl-4 w-80 h-10 rounded outline-none"
                 type="text"
                 placeholder="Pesquisar alunos"
               />
-              <Image src={lupa} alt="lupa"></Image>
+              <Image className="absolute top-1/4 right-4" src={lupa} alt="lupa"></Image>
             </div>
         </div>
         <DashboardProfessor></DashboardProfessor>
