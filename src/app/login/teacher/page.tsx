@@ -6,7 +6,7 @@ import { useState, useContext } from "react";
 
 const TeacherLogin: React.FC = () => {
   const auth = useContext(AuthContext);
-  const router = useRouter()
+  const router = useRouter();
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
 
