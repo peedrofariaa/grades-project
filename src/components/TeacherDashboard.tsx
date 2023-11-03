@@ -71,7 +71,7 @@ const DashboardProfessor = () => {
       </thead>
       <tbody>
         {rows?.map((row: any, index: any) => (
-          <tr key={index}>
+          <tr key={index} className="bg-white">
             <td>{row?.name}</td>
             <td>
               <div>
