@@ -10,15 +10,17 @@ type AuthContextType = {
     userType: string
   ) => Promise<boolean>;
   logout: () => void;
-}
+};
 
-export const AuthContext = createContext<AuthContextType | undefined>(undefined)
+export const AuthContext = createContext<AuthContextType | undefined>(
+  undefined
+);
 
 type AuthProviderProps = {
   children: ReactNode;
-}
+};
 
-export function AuthProvider ({children}: AuthProviderProps){
+export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const api = useApi();
 
@@ -31,31 +33,30 @@ export function AuthProvider ({children}: AuthProviderProps){
           email: data?.admin.email,
           id: data?.admin.id,
           userType: userType,
-          token: data.token
+          token: data.token,
         });
       }
     } else if (userType === "student") {
-      if (data?.student && data?.token){
+      if (data?.student && data?.token) {
         setUser({
           name: data.student.firstName + "" + data.student.lastName,
           email: data.student.email,
           id: data.student.id,
           userType: userType,
-          token: data.token
+          token: data.token,
         });
       }
     }
     return false;
   };
 
+  const logout = () => {
+    setUser(null)
+  };
 
-const logout = () =>{
-  
-}
-
-return(
-    <AuthContext.Provider value={{user, login, logout}}>
+  return (
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
-)
+  );
 }
