@@ -11,32 +11,32 @@ const DashboardAluno = () => {
 
   useEffect(() => {
     const handleCallStudent = async () => {
-      if (auth?.user) {
+      if (auth.user) {
         const studentRes: any = await api.callStudent(auth.user?.token);
-        const updatedRows: object[] = [];
-        studentRes?.forEach((student: any) => {
-          const score = student.score.map((el: any) => {
-            let n1 = el?.n1.toFixed(2);
-            let n2 = el?.n2.toFixed(2);
-            let n3 = el?.n3.toFixed(2);
-            let n4 = el?.n4.toFixed(2);
-            let average = el?.average.toFixed(2);
-            let situation = el?.situation;
-            const newRow = {
+
+        studentRes?.scores.map((score: any) => {
+          let n1 = score?.n1.toFixed(2);
+          let n2 = score?.n2.toFixed(2);
+          let n3 = score?.n3.toFixed(2);
+          let n4 = score?.n4.toFixed(2);
+          let average = score?.average.toFixed(2);
+          let situation = score?.situation;
+
+          return setRows([
+            ...(rows ?? []),
+            {
               n1,
               n2,
               n3,
               n4,
               average,
               situation,
-            };
-            updatedRows.push(newRow);
-            return newRow;
-          });
+            },
+          ]);
         });
-        setRows(updatedRows);
       }
     };
+
     handleCallStudent();
   }, []);
 
@@ -69,9 +69,7 @@ const DashboardAluno = () => {
             <td>{row?.n4}</td>
             <td>{row?.average}</td>
             <td>
-              <div>
-                {row?.situation}
-              </div>
+              <div>{row?.situation}</div>
             </td>
           </tr>
         ))}
