@@ -49,27 +49,51 @@ const DashboardAluno = () => {
   //  }
 
   return (
-    <table className="mt-4 w-full max-w-[1205px] mx-auto">
+    <table className="border-spacing-2 mt-4 divide-y-8 w-full max-w-[1205px] mx-auto">
       <thead>
         <tr className="bg-[#F3F4F6] h-14 font-medium">
-          <th className="">Av. 1</th>
-          <th className="">Av. 2</th>
-          <th className="">Av. 3</th>
-          <th className="">Av. 4</th>
-          <th className="">Média Final</th>
-          <th className="">Situação</th>
+          <th className="rounded-tl-lg px-4 py-3 text-left font-semibold">
+            Av. 1
+          </th>
+          <th className="px-4 py-3 tracking-wide text-left font-semibold">
+            Av. 2
+          </th>
+          <th className="px-4 py-3 tracking-wide text-left font-semibold">
+            Av. 3
+          </th>
+          <th className="px-4 py-3 tracking-wide text-left font-semibold">
+            Av. 4
+          </th>
+          <th className="px-4 py-3 tracking-wide text-left font-semibold">
+            Média Final
+          </th>
+          <th className="rounded-tr-lg px-4 py-3 text-left tracking-wide font-semibold">
+            Situação
+          </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="divide-y-8">
         {rows?.map((row: any, index) => (
           <tr key={index} className="bg-white">
-            <td className="pl-4">{row?.n1}</td>
-            <td>{row?.n2}</td>
-            <td>{row?.n3}</td>
-            <td>{row?.n4}</td>
-            <td>{row?.average}</td>
-            <td>
-              <div>{row?.situation}</div>
+            <td className="px-4 py-3 tracking-wide whitespace-nowrap">
+              {row?.n1}
+            </td>
+            <td className="px-4 py-3 tracking-wide whitespace-nowrap">
+              {row?.n2}
+            </td>
+            <td className="px-4 py-3 tracking-wide whitespace-nowrap">
+              {row?.n3}
+            </td>
+            <td className="px-4 py-3 tracking-wide whitespace-nowrap">
+              {row?.n4}
+            </td>
+            <td className="px-4 py-3 tracking-wide whitespace-nowrap">
+              {row?.average}
+            </td>
+            <td className="px-4 py-3 tracking-wide whitespace-nowrap">
+              <div className="flex items-center justify-center h-8 w-32 rounded-full bg-green-200">
+                {row?.situation}
+              </div>
             </td>
           </tr>
         ))}
