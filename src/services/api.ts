@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://test-dev.tikal.tech",
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
   headers: {
-    "x-api-key": "AUTH_ADMIN_CONFIG",
+    "x-api-key": process.env.NEXT_API_KEY,
   },
 });
 
