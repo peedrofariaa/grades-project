@@ -113,7 +113,12 @@ const DashboardProfessor = () => {
               {row?.average}
             </td>
             <td className="px-4 py-3 tracking-wide whitespace-nowrap font-semibold">
-              <div className="flex items-center justify-center h-8 w-32 rounded-full bg-green-200">
+              <div
+                className={`flex items-center justify-center h-8 w-32 rounded-full ${
+                  row?.situation === "Aprovado" ? "bg-green-200" : 
+                  row?.situation === "Reprovado" ?"bg-red-500" : "bg-yellow-300"
+                }`}
+              >
                 {row?.situation}
               </div>
             </td>
