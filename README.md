@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Rotas do front
 
-## Getting Started
+### /
 
-First, run the development server:
+É a página inicial (HOME), que dá a opção do usuário fazer login, como aluno ou como professor.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### /login/student
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Página para o estudante fazer o seu login.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### /login/teacher
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Página para o professor fazer o seu login.
 
-## Learn More
+### /dashboard/student
 
-To learn more about Next.js, take a look at the following resources:
+Página que só será acessada quando o estudante concluir o login, nessa página o estudante terá acesso as suas notas.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### /dashboard/teacher
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Página que só será acessada quando o professor concluir o login, nessa página o professor terá acesso as notas dos seus alunos.
 
-## Deploy on Vercel
+## Comandos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### npm install
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Instala as dependências.
+
+### npm run dev
+
+Inicia a aplicação localmente.
