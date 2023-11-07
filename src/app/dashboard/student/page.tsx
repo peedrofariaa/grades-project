@@ -9,6 +9,11 @@ const StudentDashboard = () => {
         <div className="flex flex-col items-start">
           <Image src={logo} alt="logo"></Image>
         </div>
+        <div>
+          <p>Menu Item</p>
+          <p>Menu Item</p>
+          <p>Menu Item</p>
+        </div>
         <div className="flex items-center">
           <button className="bg-blue-700 text-white w-20 h-14 text-lg font-semibold rounded-md">
             Perfil

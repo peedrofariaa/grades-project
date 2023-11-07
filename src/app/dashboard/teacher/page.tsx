@@ -7,8 +7,13 @@ const TeacherDashboard = () => {
   return (
     <body>
       <header className="flex justify-between mb-8 h-28 pt-8 pb-8 px-10">
-        <div className="flex flex-col items-start">
+        <div className="flex gap-14">
           <Image src={logo} alt="logo"></Image>
+          <div className="flex gap-11 pt-2">
+            <p className="font-semibold">Menu Item</p>
+            <p>Menu Item</p>
+            <p>Menu Item</p>
+          </div>
         </div>
         <div className="flex items-center">
           <button className="bg-blue-700 text-white w-20 h-14 text-lg font-semibold rounded-md">
