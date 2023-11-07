@@ -56,7 +56,7 @@ const DashboardProfessor = () => {
   //  }
 
   return (
-    <table className="border-spacing-2 mt-4 mb-4 divide-y-8 w-full max-w-[1205px] mx-auto">
+    <table className="border-spacing-2 mt-4 mb-4 divide-y-8 w-full max-w-[1190px] mx-auto">
       <thead>
         <tr className="bg-[rgb(243,244,246)] h-14 font-medium">
           <th className="rounded-tl-lg px-4 py-3 text-left font-semibold">
