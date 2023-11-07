@@ -5,8 +5,7 @@ import { AuthProvider } from "@/context/AuthContext";
 
 export const inter = Inter({
   weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  variable: "--font-inter"
+  subsets: ["latin"]
 });
 
 export const metadata: Metadata = {
@@ -20,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.className}>
       <head>
         <link rel="icon" type="image/x-icon" href="@/favicon.ico"></link>
       </head>
@@ -28,5 +27,5 @@ export default function RootLayout({
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
-  );
+  )
 }
