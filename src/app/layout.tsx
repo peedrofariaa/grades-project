@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
-import Link from 'next/link' 
 
 export const inter = Inter({
   weight: ["400", "500", "600"],
@@ -21,9 +20,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <head>
-        <Link rel="icon" href="favicon.ico"></Link>
-      </head>
       <body>
         <AuthProvider>{children}</AuthProvider>
       </body>
