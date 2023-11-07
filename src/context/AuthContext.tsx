@@ -21,35 +21,43 @@ type AuthProviderProps = {
   children: ReactNode;
 };
 
+type UserData = {
+  dataProp: User | null;
+  nameProp: string;
+}
+
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const api = useApi();
 
   const login = async (email: string, password: string, userType: string) => {
     const data = await api.login(email, password, userType);
-    if (userType === "teacher") {
-      if (data?.admin && data?.token) {
-        setUser({
-          name: data?.admin.firstName + "" + data?.admin.lastName,
-          email: data?.admin.email,
-          id: data?.admin.id,
-          userType: userType,
-          token: data.token,
-        });
-        return true;
-      }
-    } else if (userType === "student") {
-      if (data?.student && data?.token) {
-        setUser({
-          name: data?.student.firstName + "" + data?.student.lastName,
-          email: data?.student.email,
-          id: data?.student.id,
-          userType: userType,
-          token: data.token,
-        });
-        return true;
-      }
+    
+    const userProperties: Record<string, UserData> = {
+      teacher: {
+        dataProp: data?.admin,
+        nameProp: 'admin',
+      },
+      student: {
+        dataProp: data?.student,
+        nameProp: 'student',
+      },
+    };
+    
+    const userData = userProperties[userType];
+    
+    if (userData?.dataProp && data?.token) {
+      const { dataProp, nameProp } = userData;
+      setUser({
+        name: dataProp.name,
+        email: dataProp.email,
+        id: dataProp.id,
+        userType: userType,
+        token: data.token,
+      });
+      return true;
     }
+    
     return false;
   };
 
