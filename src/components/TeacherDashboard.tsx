@@ -11,7 +11,6 @@ const DashboardProfessor = () => {
   const api = useApi();
   const auth = useContext(AuthContext);
   const [rows, setRows] = useState<Array<object>>();
-  //  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const handleCallTeacher = async () => {
@@ -49,14 +48,6 @@ const DashboardProfessor = () => {
     };
     handleCallTeacher();
   }, []);
-
-  //  if (isLoading) {
-  //    return (
-  //      <div className="mt-10 flex justify-center font-bold text-2xl">
-  //        Loading...
-  //      </div>
-  //    );
-  //  }
 
   return (
     <body>
