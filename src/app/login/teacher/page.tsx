@@ -45,7 +45,7 @@ const TeacherLogin: React.FC = () => {
       <div>
         <button
           onClick={handleTeacherLogin}
-          className="bg-blue-700 w-80 h-14 rounded-md text-white font-bold text-xl hover:opacity-80"
+          className="bg-blue-700 w-80 h-14 rounded-md text-white font-semibold text-lg hover:opacity-80"
         >
           Entrar
         </button>
