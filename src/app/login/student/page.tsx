@@ -24,9 +24,9 @@ const StudentLogin: React.FC = () => {
   return (
     <main className="flex flex-col items-center">
       <div className="pt-10">
-        <h1 className="text-2xl font-bold mb-8">Bem vindo Aluno</h1>
+        <h1 className="text-2xl font-bold mt-12 mb-20">Bem vindo Aluno</h1>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col mb-5">
         <input
           type="email"
           value={email}
