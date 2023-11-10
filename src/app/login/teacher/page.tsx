@@ -14,7 +14,7 @@ const TeacherLogin: React.FC = () => {
     if (email && password) {
       const isLogged = await auth.login(email, password, "teacher");
       if (isLogged) {
-        router.push("/dashboard/teacher");
+        router.push("/dashboard");
       } else {
         alert("Login inválido");
       }
@@ -24,21 +24,21 @@ const TeacherLogin: React.FC = () => {
   return (
     <main className="flex flex-col items-center">
       <div className="pt-10">
-        <h1 className="text-2xl font-bold mt-12 mb-20">Bem vindo Professor</h1>
+        <h1 className="text-2xl font-bold mt-16 mb-16">Bem vindo Professor</h1>
       </div>
       <div className="flex flex-col mb-5">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e?.target?.value)}
-          className="w-80 h-16 border-none text-lg bg-white rounded outline-none mb-5 pl-5 placeholder:text-black"
+          className="w-80 h-16 border-none text-lg bg-white rounded outline-none mb-5 pl-5 placeholder:text-[#6B7280]"
           placeholder="Email"
         ></input>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e?.target?.value)}
-          className="w-80 h-16 border-none text-lg bg-white rounded outline-none mb-5 pl-5 placeholder:text-black"
+          className="w-80 h-16 border-none text-lg bg-white rounded outline-none mb-5 pl-5 placeholder:text-[#6B7280]"
           placeholder="Senha"
         ></input>
       </div>
