@@ -7,7 +7,7 @@ const TeacherDashboard = () => {
   return (
     <body>
       <header className="flex justify-between mb-8 h-28 pt-8 pb-8 px-10">
-        <div className="flex gap-14">
+        <div className="flex gap-16">
           <Image src={logo} alt="logo"></Image>
           <div className="flex gap-11 pt-2">
             <p className="font-semibold">Menu Item</p>
