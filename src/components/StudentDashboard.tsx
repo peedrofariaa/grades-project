@@ -49,7 +49,7 @@ const DashboardAluno = () => {
   //  }
 
   return (
-    <table className="border-spacing-2 mt-4 divide-y-8 w-full max-w-[1190px] mx-auto">
+    <table className="border-spacing-2 mt-4 divide-y-8 w-full max-w-[1210px] mx-auto">
       <thead>
         <tr className="bg-[#F3F4F6] h-14 font-medium">
           <th className="rounded-tl-lg px-4 py-3 text-left font-semibold">
