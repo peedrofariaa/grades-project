@@ -1,4 +1,22 @@
-## Rotas do front
+# Dashboard - Escola
+
+Sistema de notas com perfis de aluno e professor, com rotas protegidas e dashboards distintos.​
+
+---
+
+## Comandos para executar o projeto
+
+### npm install
+
+Instala as dependências.
+
+### npm run dev
+
+Inicia a aplicação localmente.
+
+---
+
+## Rotas
 
 ### /
 
@@ -20,12 +38,29 @@ Página que só será acessada quando o estudante concluir o login, nessa págin
 
 Página que só será acessada quando o professor concluir o login, nessa página o professor terá acesso as notas dos seus alunos.
 
-## Comandos
+---
 
-### npm install
+##Decisões de arquitetura
 
-Instala as dependências.
+Roteamento client-side (ex.: React Router) para isolar contextos por perfil.​
 
-### npm run dev
+Mock de autenticação e dados para foco na UI/fluxo.​
 
-Inicia a aplicação localmente.
+Componentização de tabelas e formulários para reuso.
+
+---
+
+##Tecnologias
+
+Stack web SPA (ex.: React + Vite) e CSS utilitário/opcional.
+
+---
+
+## Contato
+
+Para dúvidas, sugestões ou feedback, estou disponível!
+
+---
+
+> Desenvolvido por: Pedro Faria  
+> Contato: [pedrofariagaldino@gmail.com] / [https://www.linkedin.com/in/peedrofariaa/]
